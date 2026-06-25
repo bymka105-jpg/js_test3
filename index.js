@@ -672,12 +672,18 @@ console.log(bothEven(3, 9));
 // Hint: while n > 0 -> add (n % 10) to a total, then n = Math.floor(n / 10).
 // your code here
 function sumDigits(n) {
+  let total = 0;
   while (n > 0) {
+    total = total + (n % 10);
     n = Math.floor(n / 10);
   }
+  return total;
 }
+console.log("----e1----");
 
-// console.log(sumDigits(4825));
+console.log(sumDigits(4825));
+console.log(sumDigits(60));
+console.log(sumDigits(7));
 // EXAMPLE 1:  sumDigits(4825)  ->  19     (4 + 8 + 2 + 5)
 // EXAMPLE 2:  sumDigits(60)    ->  6      (6 + 0)
 // EXAMPLE 3:  sumDigits(7)     ->  7
@@ -687,8 +693,18 @@ function sumDigits(n) {
 // Hint: result = 1; loop `exp` times -> result = result * base.  (Do NOT use ** or Math.pow.)
 // Note: power(anything, 0) is 1.
 // your code here
+function power(base, exp) {
+  let result = 1;
+  for (i = 0; i < exp; i++) {
+    result = result * base;
+  }
+  return result;
+}
+console.log("------e2------");
 
-// console.log(power(2, 5));
+console.log(power(2, 5));
+console.log(power(5, 0));
+console.log(power(3, 3));
 // EXAMPLE 1:  power(2, 5)  ->  32    (2×2×2×2×2)
 // EXAMPLE 2:  power(5, 0)  ->  1     (anything to the 0 is 1)
 // EXAMPLE 3:  power(3, 3)  ->  27
@@ -699,8 +715,28 @@ function sumDigits(n) {
 // tracking BOTH a running max and a running min.
 // Hint: start hi = 0, lo = 9; for each digit d -> if (d > hi) hi = d; if (d < lo) lo = d.
 // your code here
+function digitSpread(n) {
+  let hi = 0;
+  let lo = 9;
 
-// console.log(digitSpread(364));
+  while (n > 0) {
+    let d = n % 10;
+    if (d > hi) {
+      hi = d;
+    }
+    if (d < lo) {
+      lo = d;
+    }
+    n = Math.floor(n / 10);
+  }
+  return hi - lo;
+}
+console.log("-----e3-----");
+
+console.log(digitSpread(364));
+console.log(digitSpread(70));
+console.log(digitSpread(5));
+8;
 // EXAMPLE 1:  digitSpread(364)  ->  3    (max 6, min 3)
 // EXAMPLE 2:  digitSpread(70)   ->  7    (max 7, min 0)
 // EXAMPLE 3:  digitSpread(5)    ->  0    (one digit: max == min)
@@ -709,7 +745,7 @@ function sumDigits(n) {
 // Write `reverseNumber(n)` that RETURNS a positive integer's digits reversed.
 // Hint: result = 0; while n > 0 -> result = result * 10 + (n % 10), n = Math.floor(n/10).
 // your code here
-
+function reverseNumber(n) {}
 // console.log(reverseNumber(4071));
 // EXAMPLE 1:  reverseNumber(4071)  ->  1704
 // EXAMPLE 2:  reverseNumber(90)    ->  9     (09, leading zero drops)
